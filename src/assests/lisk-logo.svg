@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="32" height="32" rx="16" fill="#0070F3"/>
+<g transform="translate(8, 8)">
+  <!-- Lisk L shape -->
+  <path d="M0 0H4V12H12V16H0V0Z" fill="white"/>
+  <!-- Dot accent -->
+  <circle cx="14" cy="2" r="1.5" fill="white"/>
+</g>
+</svg>

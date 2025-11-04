@@ -1,0 +1,474 @@
+@import "tailwindcss";
+
+/* Custom scrollbar for dark theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* Smooth transitions */
+* {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Dark theme body */
+body {
+  background-color: #0a0a0a;
+  color: #f1f5f9;
+}
+
+/* Custom animations for hero section */
+@keyframes grid {
+  0% {
+    transform: translateY(-50%);
+  }
+
+  100% {
+    transform: translateY(-50%) translateX(-50%);
+  }
+}
+
+.animate-grid {
+  animation: grid 20s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Hero Section Animations */
+@keyframes word-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+    filter: blur(10px);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: translateY(10px) scale(0.95);
+    filter: blur(2px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes grid-draw {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.3;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.15;
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes underline-grow {
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.2;
+  }
+
+  25% {
+    transform: translateY(-10px) translateX(5px);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translateY(-5px) translateX(-3px);
+    opacity: 0.4;
+  }
+
+  75% {
+    transform: translateY(-15px) translateX(7px);
+    opacity: 0.8;
+  }
+}
+
+@keyframes blockchain-float {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+
+  25% {
+    transform: translateY(-15px) translateX(10px) rotate(5deg);
+    opacity: 1;
+  }
+
+  50% {
+    transform: translateY(-8px) translateX(-5px) rotate(-3deg);
+    opacity: 0.9;
+  }
+
+  75% {
+    transform: translateY(-20px) translateX(8px) rotate(2deg);
+    opacity: 1;
+  }
+}
+
+/* Lightweight simple float animation */
+@keyframes simple-float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Optimized logo interactions */
+.crypto-logo {
+  will-change: transform;
+}
+
+.crypto-logo.logo-hovered {
+  transform: scale(1.1);
+  z-index: 100;
+}
+
+.crypto-logo.logo-clicked {
+  transform: scale(0.95);
+}
+
+/* Grid line animations */
+.grid-line {
+  stroke: rgba(200, 180, 160, 0.15);
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: grid-draw 2s ease-out forwards;
+}
+
+/* Detail dots */
+.detail-dot {
+  fill: rgba(200, 180, 160, 0.3);
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+
+/* Corner elements */
+.corner-element {
+  position: absolute;
+  opacity: 0;
+  animation: word-appear 1s ease-out forwards;
+}
+
+/* Floating elements */
+.floating-element {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: rgba(200, 180, 160, 0.2);
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+  animation-play-state: paused;
+}
+
+/* JavaScript-based infinite scroll - no CSS animation needed */
+
+/* Hide scrollbar for carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Magnetic field effects */
+.magnetic-active .crypto-logo {
+  transition: transform 0.1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.crypto-logo.magnetic-influenced {
+  z-index: 100;
+}
+
+.crypto-logo.magnetic-ripple .collision-ripple {
+  animation: magnetic-pulse 0.3s ease-out;
+  opacity: 0.6;
+}
+
+@keyframes magnetic-pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Global shockwave effect */
+@keyframes global-shockwave {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Shockwave glow effect for affected logos */
+.crypto-logo.shockwave-glow .glow-ring {
+  opacity: 1 !important;
+  animation: shockwave-glow-pulse 0.3s ease-out;
+}
+
+@keyframes shockwave-glow-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+
+  50% {
+    transform: scale(1.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* Enhanced magnetic container effects */
+.magnetic-active {
+  cursor: none;
+}
+
+.magnetic-active::before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(59, 130, 246, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  transition: all 0.1s ease;
+}
+
+/* Smooth transitions for all magnetic effects */
+.crypto-logo {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/* Enhanced hover state for magnetic field */
+.magnetic-active .crypto-logo:hover {
+  transform: scale(1.4) !important;
+  z-index: 1001 !important;
+}
+
+/* Ripple effect for magnetic interactions */
+@keyframes magnetic-ripple-expand {
+  0% {
+    transform: scale(0);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scale(3);
+    opacity: 0;
+  }
+}
+
+/* Custom Toast Styling to match website theme - High Specificity */
+.Toastify__toast-container .Toastify__toast-container--top-right {
+  z-index: 9999 !important;
+}
+
+.Toastify__toast-container .Toastify__toast {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(147, 51, 234, 0.4) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(147, 51, 234, 0.2) !important;
+  color: #f1f5f9 !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-weight: 500 !important;
+  min-height: 64px !important;
+  padding: 16px 20px !important;
+}
+
+.Toastify__toast-container .Toastify__toast--success {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.3) !important;
+}
+
+.Toastify__toast-container .Toastify__toast--error {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(239, 68, 68, 0.3) !important;
+}
+
+.Toastify__toast-container .Toastify__toast--warning {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 158, 11, 0.3) !important;
+}
+
+.Toastify__toast-container .Toastify__toast--info {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(147, 51, 234, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 20px rgba(147, 51, 234, 0.3) !important;
+}
+
+.Toastify__toast-container .Toastify__toast-body {
+  color: #f1f5f9 !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.Toastify__toast-container .Toastify__close-button {
+  color: #9ca3af !important;
+  opacity: 0.7 !important;
+  transition: all 0.2s ease !important;
+}
+
+.Toastify__toast-container .Toastify__close-button:hover {
+  color: #f1f5f9 !important;
+  opacity: 1 !important;
+  transform: scale(1.1) !important;
+}
+
+.Toastify__toast-container .Toastify__progress-bar {
+  height: 3px !important;
+  background: linear-gradient(90deg, #9945ff 0%, #14f195 100%) !important;
+}
+
+.Toastify__toast-container .Toastify__progress-bar--success {
+  background: linear-gradient(90deg, #10b981 0%, #059669 100%) !important;
+}
+
+.Toastify__toast-container .Toastify__progress-bar--error {
+  background: linear-gradient(90deg, #ef4444 0%, #dc2626 100%) !important;
+}
+
+.Toastify__toast-container .Toastify__progress-bar--warning {
+  background: linear-gradient(90deg, #f59e0b 0%, #d97706 100%) !important;
+}
+
+.Toastify__toast-container .Toastify__progress-bar--info {
+  background: linear-gradient(90deg, #9945ff 0%, #14f195 100%) !important;
+}
+
+/* Toast entrance animation */
+@keyframes toast-slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.Toastify__toast-container .Toastify__toast {
+  animation: toast-slide-in 0.3s ease-out !important;
+}
+
+/* Additional override for stubborn default styles */
+div[class*="Toastify__toast"] {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(147, 51, 234, 0.4) !important;
+  color: #f1f5f9 !important;
+}
+
+div[class*="Toastify__toast--success"] {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(16, 185, 129, 0.5) !important;
+}
+
+div[class*="Toastify__toast--error"] {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(239, 68, 68, 0.5) !important;
+}
+
+div[class*="Toastify__toast--warning"] {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(245, 158, 11, 0.5) !important;
+}
+
+div[class*="Toastify__toast--info"] {
+  background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.95) 100%) !important;
+  border: 1px solid rgba(147, 51, 234, 0.5) !important;
+}
