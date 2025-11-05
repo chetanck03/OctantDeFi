@@ -73,14 +73,14 @@ Our **WalletX Escrow Contract** is deployed and verified across 8 EVM networks:
 
 | **Network** | **Contract Address** |
 |-------------|---------------------|
-| **🔷 Lisk Sepolia** | `0x` | 
-| **🔵 Base Sepolia** | `0x` | 
-| **🟠 Citrea Testnet** | `0x` | 
-| **🟪 Polygon Amoy** | `0x` | 
-| **⚪ Ethereum Sepolia** | `0x` | 
-| **🟡 BNB Testnet** | `0x` | 
-| **⚫ ZetaChain Athens** | `0x` | 
-| **🟢 Somnia Testnet** | `0x` | 
+| **🔷 Lisk Sepolia** | `0x81219B194501707C4935F5D106b67DFBEC1F6baa` | 
+| **🔵 Base Sepolia** | `0x41e21c4e353E25a215A02778dD977Dc1A6F7ca56` | 
+| **🟠 Citrea Testnet** | `0xF7DAc384aAB89007EBAc37Dbc5782Db635E9FF8c` | 
+| **🟪 Polygon Amoy** | `0xC37258B0C18F35509D232ec603b15Bb3D091a795` | 
+| **⚪ Ethereum Sepolia** | `0x5a143f09670BEeadaB2D1CFA450Fe6F8CC0cdfDD` | 
+| **🟡 BNB Testnet** | `0x14933594e838dF806484aD31eE206CFce3999151` | 
+| **⚫ ZetaChain Athens** | `0xc9cE88752f6bAc4E6449938C0ac399d4C16Bb623` | 
+| **🟢 Somnia Testnet** | `0x4016f5d2aF71DBE1b372246f02911b60Af99B8c8` | 
 
 
 ### 📝 **Core Smart Contract Functions**
